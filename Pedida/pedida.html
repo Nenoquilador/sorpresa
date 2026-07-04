@@ -1,0 +1,3367 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Nuevo Sueño ✨</title>
+
+    <!-- Meta tags OpenGraph para WhatsApp / Redes -->
+    <meta property="og:title" content="Un Nuevo Sueño ✨">
+    <meta property="og:description" content="Tengo una pregunta muy importante para ti...">
+    <meta property="og:image" content="foto1.jpeg">
+    <!-- Preloads para mejorar rendimiento -->
+    <link rel="preload" as="image" href="fondo.jpg">
+    <link rel="preload" as="image" href="foto1.jpeg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Cursor personalizado */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text x="0" y="20" font-size="20">✨</text></svg>'), auto !important;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #1a0b2e;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Capa de Imagen de Fondo con efecto Ken Burns */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -5%;
+            left: -5%;
+            right: -5%;
+            bottom: -5%;
+            background: url('fondo.jpg') no-repeat center center / cover,
+                linear-gradient(170deg, #ff7eb3 0%, #a4508b 40%, #5f2c82 70%, #2d1456 100%);
+            z-index: 0;
+            filter: brightness(0.85);
+            pointer-events: none;
+            animation: kenBurns 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            33% {
+                transform: scale(1.06) translate(-1%, -1%);
+            }
+
+            66% {
+                transform: scale(1.04) translate(1%, 0.5%);
+            }
+
+            100% {
+                transform: scale(1.08) translate(-0.5%, 1%);
+            }
+        }
+
+        /* Capa de transición al atardecer/noche */
+        .night-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(20, 10, 40, 0.2) 0%, rgba(5, 2, 15, 0.95) 100%);
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Contenedor de Toasts (Botón NO) */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast-msg {
+            background: rgba(255, 60, 100, 0.9);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 60, 100, 0.5);
+            animation: toastEnter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, toastExit 0.4s ease-in forwards 2.5s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes toastEnter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes toastExit {
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Viñeta Cinematográfica */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, transparent 40%, rgba(5, 2, 10, 0.85) 120%);
+            pointer-events: none;
+            z-index: 9000;
+        }
+
+        /* ═══════════ Cielo Estrellado ═══════════ */
+        .stars-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: #fff;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.15;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* ═══════════ Partículas Doradas ═══════════ */
+        .golden-particle {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.4) 60%, transparent 100%);
+            pointer-events: none;
+            z-index: 2;
+            animation: driftParticle var(--dur) ease-in-out infinite;
+            filter: blur(0.5px);
+        }
+
+        @keyframes driftParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: var(--opa);
+            }
+
+            85% {
+                opacity: var(--opa);
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(calc(var(--dx) * 1px));
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Linternas Flotantes ═══════════ */
+        .lantern-wrap {
+            position: fixed;
+            bottom: -120px;
+            z-index: 3;
+            pointer-events: none;
+            animation: floatUp var(--dur) linear infinite;
+            animation-delay: var(--delay);
+        }
+
+        .lantern-body {
+            width: var(--w);
+            height: calc(var(--w) * 1.35);
+            background: radial-gradient(ellipse at 50% 40%,
+                    rgba(255, 235, 150, 0.95) 0%,
+                    rgba(255, 190, 60, 0.85) 35%,
+                    rgba(230, 130, 30, 0.7) 65%,
+                    rgba(200, 80, 20, 0.5) 100%);
+            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow:
+                0 0 20px rgba(255, 200, 80, 0.6),
+                0 0 60px rgba(255, 165, 0, 0.3),
+                inset 0 -8px 20px rgba(255, 100, 0, 0.3);
+        }
+
+        /* Brillo interior de la linterna */
+        .lantern-body::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 25%;
+            width: 50%;
+            height: 40%;
+            background: radial-gradient(ellipse, rgba(255, 255, 220, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: innerGlow 3s ease-in-out infinite alternate;
+        }
+
+        /* Aro superior */
+        .lantern-body::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 8px;
+            background: rgba(200, 160, 80, 0.7);
+            border-radius: 3px;
+        }
+
+        @keyframes innerGlow {
+            0% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            8% {
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: translateY(-55vh) translateX(30px) rotate(5deg);
+            }
+
+            92% {
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translateY(-120vh) translateX(-20px) rotate(-3deg);
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Contenedor Principal ═══════════ */
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(30, 15, 60, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 28px;
+            max-width: 520px;
+            width: 90%;
+            position: relative;
+            overflow: visible;
+            animation: containerAppear 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+
+        /* Borde dorado animado giratorio */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 30px;
+            background: conic-gradient(from var(--border-angle, 0deg),
+                    transparent 0%,
+                    rgba(255, 215, 0, 0.6) 10%,
+                    transparent 20%,
+                    rgba(255, 165, 0, 0.4) 35%,
+                    transparent 50%,
+                    rgba(255, 107, 157, 0.5) 65%,
+                    transparent 80%,
+                    rgba(255, 215, 0, 0.6) 90%,
+                    transparent 100%);
+            z-index: -1;
+            animation: rotateBorder 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @property --border-angle {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        @keyframes rotateBorder {
+            to {
+                --border-angle: 360deg;
+            }
+        }
+
+        /* Resplandor dorado detrás del contenedor */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 30px;
+            background: conic-gradient(from var(--border-angle, 0deg),
+                    transparent 0%,
+                    rgba(255, 215, 0, 0.15) 10%,
+                    transparent 20%);
+            z-index: -2;
+            animation: rotateBorder 6s linear infinite;
+            filter: blur(15px);
+        }
+
+        @keyframes containerAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ═══════════ Decoración floral sutil ═══════════ */
+        .ornament {
+            font-size: 1.4rem;
+            color: rgba(255, 215, 0, 0.35);
+            letter-spacing: 8px;
+            margin-bottom: 8px;
+            animation: fadeInDown 1.8s 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ═══════════ Título ═══════════ */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 400;
+            background: linear-gradient(135deg, #ffe6a0, #ffd700, #ffb347, #ffd700, #ffe6a0);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerTitle 4s ease-in-out infinite, fadeInDown 1.8s 0.5s both;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            filter: drop-shadow(0 2px 8px rgba(255, 200, 80, 0.3));
+        }
+
+        @keyframes shimmerTitle {
+            0% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 200% center;
+            }
+
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* ═══════════ Subtítulo / Mensaje ═══════════ */
+        .subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+            animation: fadeInDown 1.8s 0.7s both;
+        }
+
+        p.message {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(230, 215, 245, 0.9);
+            margin-bottom: 35px;
+            line-height: 1.8;
+            font-style: italic;
+            animation: fadeInDown 1.8s 0.9s both;
+        }
+
+        p.message::before,
+        p.message::after {
+            content: '"';
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: rgba(255, 215, 0, 0.4);
+            vertical-align: -4px;
+            margin: 0 4px;
+        }
+
+        /* ═══════════ Botones ═══════════ */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            min-height: 55px;
+            position: relative;
+            animation: fadeInDown 1.8s 1.1s both;
+        }
+
+        button {
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #btn-si {
+            background: linear-gradient(135deg, #ffd700, #ffb347, #ffa500);
+            color: #1a0b2e;
+            box-shadow:
+                0 4px 20px rgba(255, 200, 80, 0.4),
+                0 0 40px rgba(255, 215, 0, 0.15);
+        }
+
+        #btn-si::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        #btn-si:hover::before {
+            left: 100%;
+        }
+
+        #btn-si:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow:
+                0 8px 30px rgba(255, 200, 80, 0.6),
+                0 0 60px rgba(255, 215, 0, 0.25);
+        }
+
+        #btn-no {
+            background: rgba(80, 50, 120, 0.5);
+            color: rgba(200, 180, 220, 0.7);
+            border: 1px solid rgba(200, 180, 220, 0.15);
+            backdrop-filter: blur(10px);
+            position: absolute;
+            transition: all 0.15s ease;
+        }
+
+        /* ═══════════ Estado Aceptado ═══════════ */
+        .accepted-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            font-weight: 400;
+            background: linear-gradient(135deg, #ffe6a0, #ffd700, #ff8c42, #ffd700, #ffe6a0);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerTitle 3s ease-in-out infinite;
+            filter: drop-shadow(0 3px 12px rgba(255, 200, 80, 0.4));
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .accepted-badge {
+            display: inline-block;
+            padding: 6px 24px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.15));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .accepted-message {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(230, 215, 245, 0.9);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .accepted-emoji {
+            font-size: 2.5rem;
+            animation: floatEmoji 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .accepted-date {
+            margin-top: 18px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 215, 0, 0.35);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.1);
+            }
+        }
+
+        @keyframes floatEmoji {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        /* ═══════════ Confeti / Celebración ═══════════ */
+        .confetti {
+            position: fixed;
+            z-index: 50;
+            pointer-events: none;
+            animation: confettiFall var(--dur) linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .heart-float {
+            position: fixed;
+            z-index: 50;
+            pointer-events: none;
+            font-size: var(--size);
+            animation: heartRise var(--dur) ease-out forwards;
+        }
+
+        @keyframes heartRise {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+
+            20% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(0.5) translateX(var(--dx));
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Corazón 3D ═══════════ */
+        .heart-3d-wrapper {
+            position: fixed;
+            z-index: 8;
+            perspective: 800px;
+            pointer-events: none;
+            filter: drop-shadow(0 0 25px rgba(255, 80, 120, 0.5));
+            animation: heart3dFloat 6s ease-in-out infinite, fadeInDown 2s 1.5s both;
+        }
+
+        .heart-3d-wrapper.top-left {
+            left: 4%;
+            top: 15%;
+        }
+
+        .heart-3d-wrapper.bottom-right {
+            right: 5%;
+            bottom: 12%;
+        }
+
+        .heart-3d {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: heart3dSpin 8s ease-in-out infinite;
+        }
+
+        .heart-3d-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .heart-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Construir el corazón con dos piezas redondeadas */
+        .heart-shape::before,
+        .heart-shape::after {
+            content: '';
+            position: absolute;
+            width: 52px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff4d7d, #ff2d5e, #e8174a);
+            border-radius: 52px 52px 0 0;
+        }
+
+        .heart-shape::before {
+            left: 52px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart-shape::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* Cara frontal */
+        .heart-front .heart-shape::before,
+        .heart-front .heart-shape::after {
+            background: linear-gradient(135deg, #ff6b9d, #ff2d5e, #d4145a);
+        }
+
+        /* Cara trasera */
+        .heart-back {
+            transform: rotateY(180deg);
+        }
+
+        .heart-back .heart-shape::before,
+        .heart-back .heart-shape::after {
+            background: linear-gradient(135deg, #c2185b, #ad1457, #880e4f);
+        }
+
+        /* Brillo interior del corazón */
+        .heart-glow {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 35%;
+            height: 30%;
+            background: radial-gradient(ellipse, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        @keyframes heart3dSpin {
+            0% {
+                transform: rotateY(0deg) rotateZ(0deg);
+            }
+
+            25% {
+                transform: rotateY(90deg) rotateZ(3deg);
+            }
+
+            50% {
+                transform: rotateY(180deg) rotateZ(0deg);
+            }
+
+            75% {
+                transform: rotateY(270deg) rotateZ(-3deg);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateZ(0deg);
+            }
+        }
+
+        @keyframes heart3dFloat {
+
+            0%,
+            100% {
+                transform: translateY(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateY(-50%) translateY(-15px);
+            }
+        }
+
+        /* ═══════════ Farol 3D de Rapunzel ═══════════ */
+        .lantern-3d-wrapper {
+            position: fixed;
+            z-index: 8;
+            perspective: 600px;
+            pointer-events: none;
+            animation: lantern3dFloat 7s ease-in-out infinite, fadeInDown 2s 1.8s both;
+        }
+
+        .lantern-3d-wrapper.top-right {
+            right: 4%;
+            top: 12%;
+        }
+
+        .lantern-3d-wrapper.bottom-left {
+            left: 5%;
+            bottom: 10%;
+        }
+
+        .lantern-3d {
+            width: 70px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: lantern3dSpin 12s ease-in-out infinite;
+        }
+
+        /* Cuerpo principal del farol */
+        .lantern-3d-body {
+            position: absolute;
+            width: 70px;
+            height: 90px;
+            top: 10px;
+            border-radius: 8px 8px 4px 4px;
+            background: linear-gradient(180deg,
+                    rgba(255, 220, 120, 0.15) 0%,
+                    rgba(255, 200, 80, 0.12) 100%);
+            border: 1.5px solid rgba(200, 160, 80, 0.6);
+            box-shadow:
+                inset 0 0 30px rgba(255, 180, 50, 0.5),
+                inset 0 0 60px rgba(255, 140, 0, 0.2),
+                0 0 30px rgba(255, 200, 80, 0.4),
+                0 0 60px rgba(255, 165, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Paneles decorativos del farol (estilo asiático) */
+        .lantern-3d-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: rgba(200, 160, 80, 0.4);
+        }
+
+        .lantern-3d-body::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(200, 160, 80, 0.4);
+        }
+
+        /* Resplandor interior */
+        .lantern-3d-glow {
+            position: absolute;
+            top: 25%;
+            left: 15%;
+            width: 70%;
+            height: 50%;
+            background: radial-gradient(ellipse,
+                    rgba(255, 230, 150, 0.9) 0%,
+                    rgba(255, 200, 80, 0.5) 40%,
+                    transparent 70%);
+            border-radius: 50%;
+            animation: lanternPulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes lanternPulse {
+            0% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Aro superior del farol */
+        .lantern-3d-top {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 10px;
+            background: linear-gradient(180deg, #c9a84c, #a07830);
+            border-radius: 4px 4px 2px 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Aro inferior del farol */
+        .lantern-3d-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 8px;
+            background: linear-gradient(180deg, #a07830, #7a5a20);
+            border-radius: 2px 2px 4px 4px;
+        }
+
+        /* Asa del farol */
+        .lantern-3d-handle {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 16px;
+            border: 2.5px solid #c9a84c;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Llama */
+        .lantern-3d-flame {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 18px;
+            background: radial-gradient(ellipse at bottom,
+                    #fff 0%,
+                    #ffe066 30%,
+                    #ffa500 60%,
+                    transparent 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flameFlicker 0.8s ease-in-out infinite alternate;
+            filter: blur(0.5px);
+        }
+
+        @keyframes flameFlicker {
+            0% {
+                transform: translateX(-50%) scaleX(1) scaleY(1);
+            }
+
+            33% {
+                transform: translateX(-50%) scaleX(0.85) scaleY(1.1) rotate(2deg);
+            }
+
+            66% {
+                transform: translateX(-50%) scaleX(1.1) scaleY(0.9) rotate(-1deg);
+            }
+
+            100% {
+                transform: translateX(-50%) scaleX(0.9) scaleY(1.05) rotate(1deg);
+            }
+        }
+
+        @keyframes lantern3dSpin {
+            0% {
+                transform: rotateY(0deg) rotateX(3deg);
+            }
+
+            25% {
+                transform: rotateY(90deg) rotateX(-2deg);
+            }
+
+            50% {
+                transform: rotateY(180deg) rotateX(3deg);
+            }
+
+            75% {
+                transform: rotateY(270deg) rotateX(-2deg);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateX(3deg);
+            }
+        }
+
+        @keyframes lantern3dFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ═══════════ Polvo de Hadas Cursor ═══════════ */
+        .cursor-sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1), rgba(255, 215, 0, 0.8) 40%, transparent 100%);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 150, 0, 0.4);
+            animation: sparkleFade 1s ease-out forwards;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes sparkleFade {
+            0% {
+                transform: scale(1) translate(0, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) translate(var(--tx), var(--ty));
+                opacity: 0;
+                filter: hue-rotate(45deg);
+            }
+        }
+
+        /* ═══════════ Estrellas Fugaces ═══════════ */
+        .shooting-star {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow:
+                0 0 6px 2px rgba(255, 255, 255, 0.6),
+                0 0 12px 4px rgba(200, 180, 255, 0.3);
+            animation: shootingStar var(--dur) linear forwards;
+        }
+
+        .shooting-star::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.6));
+            border-radius: 50%;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translate(0, 0) rotate(var(--angle));
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--dx), var(--dy)) rotate(var(--angle));
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Explosión de Clic ═══════════ */
+        .click-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            border-radius: 50%;
+            animation: burstOut 0.7s ease-out forwards;
+        }
+
+        @keyframes burstOut {
+            0% {
+                transform: scale(0) translate(0, 0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) translate(var(--bx), var(--by));
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Cursor de Escritura ═══════════ */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: rgba(255, 215, 0, 0.7);
+            margin-left: 3px;
+            vertical-align: text-bottom;
+            animation: cursorBlink 0.7s step-end infinite;
+        }
+
+        @keyframes cursorBlink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Cinematic Transformation ═══════════ */
+
+        .cinematic-text-overlay {
+            position: fixed;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 8;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 2s ease;
+        }
+
+        .cinematic-text-overlay.visible {
+            opacity: 1;
+        }
+
+        .cinematic-title {
+            font-size: 4rem;
+            color: #fff;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 107, 157, 0.8);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .cinematic-subtitle {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .cinematic-title {
+                font-size: 2.8rem;
+            }
+
+            .cinematic-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ═══════════ Intro Cinematográfica Mejorada ═══════════ */
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('fondo.jpg') no-repeat center center / cover;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: opacity 2.5s ease-in-out, visibility 2.5s;
+        }
+
+        .intro-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 0;
+        }
+
+        .intro-screen * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-text {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: rgba(255, 215, 0, 0.9);
+            font-family: 'Great Vibes', cursive;
+            opacity: 0;
+            animation: fadeInOut 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        @keyframes fadeInOut {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .click-to-start {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: pulseStart 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseStart {
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* ═══════════ Anillo Giratorio ═══════════ */
+        .ring-container {
+            margin-bottom: 30px;
+            animation: floatEmoji 3s ease-in-out infinite;
+        }
+
+        .ring-3d {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            animation: ringSpin 4s ease-in-out infinite;
+        }
+
+        .ring-band {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 6px solid transparent;
+            border-top-color: #ffd700;
+            border-bottom-color: #ffb347;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow:
+                0 0 15px rgba(255, 215, 0, 0.5),
+                inset 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .ring-diamond {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle at 30% 30%, #fff, #e0e8ff, #a0b0ff);
+            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 20% 100%, 0% 35%);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: diamondSparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes ringSpin {
+            0% {
+                transform: rotateY(0deg) rotateX(15deg);
+            }
+
+            50% {
+                transform: rotateY(180deg) rotateX(-5deg);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotateX(15deg);
+            }
+        }
+
+        @keyframes diamondSparkle {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(2) drop-shadow(0 0 10px #fff);
+            }
+        }
+
+        /* ═══════════ Pétalos / Luciérnagas ═══════════ */
+        .petal {
+            position: fixed;
+            pointer-events: none;
+            z-index: 4;
+            border-radius: 50% 0 50% 0;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.7), rgba(255, 105, 180, 0.4));
+            animation: petalFall var(--dur) linear infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-10vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(calc(var(--sway) * 1px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .firefly {
+            position: fixed;
+            pointer-events: none;
+            z-index: 4;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(255, 255, 180, 0.9);
+            box-shadow: 0 0 8px rgba(255, 255, 150, 0.8), 0 0 20px rgba(255, 200, 50, 0.4);
+            animation: fireflyFloat var(--dur) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes fireflyFloat {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: var(--opa);
+            }
+
+            50% {
+                transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px));
+            }
+
+            80% {
+                opacity: var(--opa);
+            }
+
+            100% {
+                transform: translate(calc(var(--dx) * -0.5px), calc(var(--dy) * 0.5px));
+                opacity: 0;
+            }
+        }
+
+        /* ═══════════ Sección Nombres ═══════════ */
+        .names-section {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .names-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .name-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 7vw, 3.5rem);
+            background: linear-gradient(135deg, #ffe6a0, #ffd700, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 8px rgba(255, 200, 80, 0.4));
+            animation: fadeInDown 2s 2s both;
+        }
+
+        .names-heart {
+            font-size: 2rem;
+            color: #ff6b9d;
+            animation: heartbeat 1.5s ease-in-out infinite, fadeInDown 2s 2.3s both;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.6));
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.3);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.2);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        /* ═══════════ Flip Clock ═══════════ */
+        .flip-clock-unit {
+            background: rgba(30, 15, 60, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 15px 10px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flip-clock-unit::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .flip-val {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flip-val.flip {
+            animation: flipNum 0.6s ease-in-out;
+        }
+
+        @keyframes flipNum {
+            0% {
+                transform: perspective(200px) rotateX(0deg);
+            }
+
+            50% {
+                transform: perspective(200px) rotateX(-90deg);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: perspective(200px) rotateX(0deg);
+            }
+        }
+
+
+
+        /* ═══════════ Scroll Post-Aceptación ═══════════ */
+        .post-accept-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            overflow-y: auto;
+            overflow-x: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 2s ease 1.5s;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .post-accept-scroll.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .post-accept-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .post-accept-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .post-accept-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .scroll-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .section-divider {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.4), transparent);
+            margin: 20px auto;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: linear-gradient(135deg, #ffe6a0, #ffd700, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 8px rgba(255, 200, 80, 0.3));
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(255, 215, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        /* ═══════════ Galería Polaroid 3D Mejorada ═══════════ */
+        .gallery-container {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            perspective: 1200px;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .gallery-photo {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 12px solid #fff;
+            border-bottom: 50px solid #fff;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(0, 0, 0, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(0.8) rotate(var(--rot)) translateX(40px) translateZ(-50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-photo::after {
+            content: '📸 Toca para ver más';
+            position: absolute;
+            bottom: -38px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            color: rgba(0, 0, 0, 0.35);
+            letter-spacing: 1px;
+        }
+
+        .gallery-photo.active {
+            opacity: 1;
+            transform: scale(1) rotate(0deg) translateX(0) translateZ(0);
+            z-index: 10;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                0 0 80px rgba(255, 215, 0, 0.1);
+        }
+
+        .gallery-photo.prev {
+            opacity: 0;
+            transform: scale(0.7) rotate(-20deg) translateX(-80px) translateZ(-100px);
+            z-index: 5;
+        }
+
+        .gallery-hint {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* ═══════════ Razones - Flip Cards ═══════════ */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 800px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .reason-card {
+            perspective: 800px;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .reason-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .reason-card:hover .reason-card-inner,
+        .reason-card.flipped .reason-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .reason-front,
+        .reason-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .reason-front {
+            background: rgba(30, 15, 60, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .reason-front .reason-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: floatEmoji 3s ease-in-out infinite;
+        }
+
+        .reason-front .reason-hint {
+            font-size: 0.75rem;
+            color: rgba(255, 215, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .reason-back {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.1));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transform: rotateY(180deg);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15);
+        }
+
+        .reason-back p {
+            font-size: 1rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* ═══════════ Carta de Amor ═══════════ */
+        .love-letter {
+            max-width: 600px;
+            width: 90%;
+            background: rgba(30, 15, 60, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .love-letter::before {
+            content: '💌';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+        }
+
+        .love-letter p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(230, 215, 245, 0.9);
+            line-height: 2;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .love-letter .letter-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-top: 20px;
+        }
+
+        /* ═══════════ Timeline de Momentos ═══════════ */
+        .timeline {
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(255, 215, 0, 0.5), rgba(255, 107, 157, 0.5), rgba(255, 215, 0, 0.5));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideInTimeline 0.8s forwards;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 215, 0, 0.6);
+            margin-bottom: 5px;
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        @keyframes slideInTimeline {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ═══════════ Contador de Tiempo ═══════════ */
+        .time-counter {
+            text-align: center;
+            color: #fff;
+        }
+
+        .time-counter h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+        }
+
+        .time-units {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: rgba(30, 15, 60, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .unit-val {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .unit-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 215, 0, 0.6);
+            margin-top: 5px;
+        }
+
+        /* Scroll indicator arrow */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounceArrow 2s ease-in-out infinite;
+            color: rgba(255, 215, 0, 0.5);
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounceArrow {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+                opacity: 1;
+            }
+        }
+
+        /* Animación para esconder el botón No */
+        .fade-out-btn {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transform: scale(0.8);
+        }
+
+        /* ═══════════ Responsive Móvil Mejorado ═══════════ */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 22px;
+                width: 92%;
+            }
+
+            .ornament {
+                font-size: 1.1rem;
+                letter-spacing: 5px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 9vw, 3rem);
+            }
+
+            p.message {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            button {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+
+            #btn-si {
+                width: 100%;
+                padding: 16px;
+                font-size: 1.05rem;
+            }
+
+            .heart-3d-wrapper,
+            .lantern-3d-wrapper {
+                display: none;
+            }
+
+            .gallery-container {
+                width: 220px;
+                height: 300px;
+            }
+
+            .gallery-photo {
+                border-width: 8px;
+                border-bottom-width: 35px;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 0 10px;
+            }
+
+            .reason-card {
+                height: 170px;
+            }
+
+            .love-letter {
+                padding: 35px 25px;
+            }
+
+            .love-letter p {
+                font-size: 0.95rem;
+            }
+
+            .time-unit {
+                min-width: 65px;
+                padding: 10px;
+            }
+
+            .unit-val {
+                font-size: 1.5rem;
+            }
+
+            .scroll-section {
+                padding: 40px 15px;
+            }
+
+            .cinematic-title {
+                font-size: 2.5rem;
+            }
+
+            .cinematic-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 900px) {
+            .heart-3d {
+                width: 55px;
+                height: 55px;
+            }
+
+            .heart-shape::before,
+            .heart-shape::after {
+                width: 36px;
+                height: 55px;
+                border-radius: 36px 36px 0 0;
+            }
+
+            .heart-shape::before {
+                left: 36px;
+            }
+
+            .lantern-3d {
+                width: 50px;
+                height: 72px;
+            }
+
+            .lantern-3d-body {
+                width: 50px;
+                height: 64px;
+            }
+
+            .lantern-3d-top {
+                width: 36px;
+            }
+
+            .lantern-3d-bottom {
+                width: 32px;
+            }
+
+            .lantern-3d-handle {
+                width: 22px;
+                height: 12px;
+            }
+
+            .heart-3d-wrapper.top-left {
+                left: 2%;
+            }
+
+            .heart-3d-wrapper.bottom-right {
+                right: 2%;
+            }
+
+            .lantern-3d-wrapper.top-right {
+                right: 2%;
+            }
+
+            .lantern-3d-wrapper.bottom-left {
+                left: 2%;
+            }
+
+            .reasons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ═══════════ Preloader ═══════════ */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a0b2e;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        .preloader-heart {
+            font-size: 4rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .preloader-text {
+            margin-top: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: rgba(255, 215, 0, 0.8);
+            letter-spacing: 2px;
+            animation: pulseStart 2s ease-in-out infinite;
+        }
+
+        /* ═══════════ Botón Mute ═══════════ */
+        #mute-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10001;
+            background: rgba(30, 15, 60, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 1s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        #mute-btn.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #mute-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* ═══════════ Modal Secreto ═══════════ */
+        #secret-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+
+        #secret-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .secret-content {
+            background: linear-gradient(135deg, rgba(30, 15, 60, 0.9), rgba(15, 5, 30, 0.9));
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.4);
+            text-align: center;
+            max-width: 80%;
+            transform: scale(0.8);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.2);
+        }
+
+        #secret-modal.visible .secret-content {
+            transform: scale(1);
+        }
+
+        .secret-content h3 {
+            font-family: 'Great Vibes', cursive;
+            color: #ffd700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* ═══════════ Optimización de Rendimiento ═══════════ */
+        .star, .golden-particle, .lantern-wrap, .shooting-star, .petal, .firefly, .heart-float, .confetti {
+            will-change: transform, opacity;
+        }
+
+        /* ═══════════ Scroll Reveal ═══════════ */
+        .scroll-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .scroll-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════ Milestone Toast ═══════════ */
+        .milestone-toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background: rgba(30, 15, 60, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            border-radius: 24px;
+            padding: 35px 45px;
+            text-align: center;
+            z-index: 100001;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3), 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .milestone-toast.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: all;
+        }
+
+        .milestone-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 12px;
+            animation: floatEmoji 2s ease-in-out infinite;
+        }
+
+        .milestone-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+
+        .milestone-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+
+        /* ═══════════ Botón Volver al Inicio ═══════════ */
+        .back-to-top {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.15));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            color: #ffd700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.35), rgba(255, 165, 0, 0.25));
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════ Photo Placeholder ═══════════ */
+        .gallery-photo {
+            background-color: rgba(30, 15, 60, 0.6);
+        }
+
+        .gallery-photo.img-error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: none !important;
+            background: linear-gradient(135deg, rgba(30, 15, 60, 0.8), rgba(80, 40, 120, 0.5)) !important;
+        }
+
+        .gallery-photo.img-error::before {
+            content: '📷';
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .gallery-photo.img-error::after {
+            content: 'Foto no disponible';
+            bottom: -38px;
+            font-size: 0.75rem;
+            color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* ═══════════ Swipe Hint ═══════════ */
+        .swipe-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 2px;
+            animation: swipeHintPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes swipeHintPulse {
+            0%, 100% { opacity: 0.35; transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { opacity: 0.7; }
+            75% { transform: translateX(5px); }
+        }
+
+        /* ═══════════ Footer Final ═══════════ */
+        .final-footer {
+            text-align: center;
+            padding: 40px 20px 60px;
+            color: rgba(255, 215, 0, 0.3);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .final-footer .footer-heart {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-heart">❤️</div>
+        <div class="preloader-text">Preparando magia...</div>
+    </div>
+
+    <!-- Botón de Silencio -->
+    <div id="mute-btn" onclick="toggleMute()">
+        <span id="mute-icon">🔊</span>
+    </div>
+
+    <!-- Modal Secreto (Easter Egg) -->
+    <div id="secret-modal" onclick="this.classList.remove('visible')">
+        <div class="secret-content">
+            <h3>¡Encontraste un secreto! 🤫</h3>
+            <p>Solo quería recordarte que te amo más de lo que las palabras pueden expresar.</p>
+            <div style="font-size: 3rem; margin-top: 15px;">💜✨</div>
+        </div>
+    </div>
+    <!-- Capa de transición noche -->
+    <div class="night-overlay" id="night-overlay"></div>
+
+    <!-- Elementos de Audio -->
+    <audio id="bg-music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pantalla Intro -->
+    <div class="intro-screen" id="intro-screen" onclick="iniciarExperiencia()">
+        <div class="intro-text">Cierra los ojos...</div>
+        <div class="click-to-start">Haz clic para abrirlos</div>
+    </div>
+
+    <!-- Texto Supremo Cinemático -->
+    <div class="cinematic-text-overlay" id="cinematic-overlay">
+        <h1 class="cinematic-title">¡Sabía que dirías que sí! 💜</h1>
+        <div class="cinematic-subtitle" id="cinematic-date">Y así comienza nuestra historia...</div>
+    </div>
+
+    <!-- Contenido Post-Aceptación (Scroll con secciones) -->
+    <div class="post-accept-scroll" id="post-accept">
+
+        <!-- Sección 1: Galería de Fotos Polaroid -->
+        <div class="scroll-section">
+            <h2 class="section-title">Nuestros Momentos</h2>
+            <div class="section-subtitle">✦ Toca la foto para ver más ✦</div>
+            <div class="gallery-container" id="gallery" onclick="siguienteFoto()" role="button" aria-label="Galería de fotos, haz clic para avanzar">
+                <div class="gallery-photo active" style="background-image: url('foto1.jpeg'); --rot: -5deg;" role="img" aria-label="Nuestra foto 1"></div>
+                <div class="gallery-photo" style="background-image: url('foto2.jpeg'); --rot: 8deg;" role="img" aria-label="Nuestra foto 2"></div>
+                <div class="gallery-photo" style="background-image: url('foto3.jpeg'); --rot: -12deg;" role="img" aria-label="Nuestra foto 3"></div>
+                <div class="gallery-photo" style="background-image: url('foto4.jpeg'); --rot: 5deg;" role="img" aria-label="Nuestra foto 4"></div>
+            </div>
+            <div class="swipe-hint">← Desliza o toca para ver más →</div>
+            <div class="scroll-arrow">▼</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Sección 2: Razones por las que te quiero -->
+        <div class="scroll-section">
+            <h2 class="section-title">Razones por las que te quiero</h2>
+            <div class="section-subtitle">✦ Toca cada tarjeta ✦</div>
+            <div class="reasons-grid">
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">💜</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque tu sonrisa ilumina hasta el día más gris de mi vida.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">✨</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque me haces querer ser la mejor versión de mí mismo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">🌟</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque contigo los silencios no son incómodos, son perfectos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">🏮</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque eres mi nuevo sueño, igual que Rapunzel encontró el suyo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">💫</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque cada momento a tu lado se siente como ver las luces flotar por primera vez.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card" onclick="if(navigator.vibrate) navigator.vibrate(15); this.classList.toggle('flipped')">
+                    <div class="reason-card-inner">
+                        <div class="reason-front">
+                            <div class="reason-emoji">💛</div>
+                            <div class="reason-hint">Descúbrelo</div>
+                        </div>
+                        <div class="reason-back">
+                            <p>Porque simplemente... eres tú. Y eso es más que suficiente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-arrow">▼</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Sección 3: Carta de Amor -->
+        <div class="scroll-section">
+            <h2 class="section-title">Para ti</h2>
+            <div class="section-subtitle">✦ Con todo mi corazón ✦</div>
+            <div class="love-letter">
+                <p>Desde que llegaste a mi vida, todo cambió. Los colores son más brillantes, las risas más sinceras y
+                    los días más bonitos.</p>
+                <p>No sé qué hice para merecer a alguien como tú, pero agradezco cada segundo que el universo nos regaló
+                    juntos.</p>
+                <p>Quiero ser tu compañero de aventuras, tu refugio en los días difíciles y la razón de tu sonrisa cada
+                    mañana.</p>
+                <p>Te quiero hoy, mañana y todos los días que vengan. 💜</p>
+                <div class="letter-signature">Con todo mi amor</div>
+            </div>
+            <div class="scroll-arrow">▼</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Sección 4: Timeline de Momentos -->
+        <div class="scroll-section">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="section-subtitle">✦ Los momentos que nos trajeron aquí ✦</div>
+            <div class="timeline">
+                <div class="timeline-item" style="animation-delay: 0.2s;">
+                    <div class="timeline-date">El inicio</div>
+                    <div class="timeline-text">La primera vez que nos vimos y supe que eras especial. ✨</div>
+                </div>
+                <div class="timeline-item" style="animation-delay: 0.5s;">
+                    <div class="timeline-date">Las pláticas</div>
+                    <div class="timeline-text">Las conversaciones que no queríamos que terminaran nunca. 💬</div>
+                </div>
+                <div class="timeline-item" style="animation-delay: 0.8s;">
+                    <div class="timeline-date">La conexión</div>
+                    <div class="timeline-text">Cuando me di cuenta que contigo todo era diferente. 💜</div>
+                </div>
+                <div class="timeline-item" style="animation-delay: 1.1s;">
+                    <div class="timeline-date">Hoy</div>
+                    <div class="timeline-text">El día que te pregunté si querías ser mi novia. 🏮✨</div>
+                </div>
+            </div>
+            <div class="scroll-arrow">▼</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Sección 5: Contador Flip Clock -->
+        <div class="scroll-section">
+            <h2 class="section-title">Nuestro tiempo juntos</h2>
+            <div class="section-subtitle">✦ Gemita & Lobito ✦</div>
+            <div class="time-counter">
+                <div class="time-units">
+                    <div class="flip-clock-unit">
+                        <div class="flip-val" id="t-days">0</div>
+                        <div class="unit-label">Días</div>
+                    </div>
+                    <div class="flip-clock-unit">
+                        <div class="flip-val" id="t-hours">00</div>
+                        <div class="unit-label">Hrs</div>
+                    </div>
+                    <div class="flip-clock-unit">
+                        <div class="flip-val" id="t-mins">00</div>
+                        <div class="unit-label">Min</div>
+                    </div>
+                    <div class="flip-clock-unit">
+                        <div class="flip-val" id="t-secs">00</div>
+                        <div class="unit-label">Seg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Final: Botón volver al inicio -->
+        <div class="final-footer">
+            <span class="footer-heart">💜</span>
+            Hecho con amor — Para Siempre
+            <br><br>
+            <a class="back-to-top" onclick="document.getElementById('post-accept').scrollTo({top: 0, behavior: 'smooth'})">✨ Volver al inicio ✨</a>
+        </div>
+
+    </div>
+
+    <!-- Milestone Toast -->
+    <div class="milestone-toast" id="milestone-toast">
+        <div class="milestone-emoji" id="milestone-emoji">🎉</div>
+        <div class="milestone-text" id="milestone-text">¡Felicidades!</div>
+        <div class="milestone-sub" id="milestone-sub"></div>
+    </div>
+
+    <!-- Capa de estrellas (generada por JS) -->
+    <div class="stars-layer" id="stars"></div>
+
+    <!-- Corazón 3D - Arriba Izquierda -->
+    <div class="heart-3d-wrapper top-left">
+        <div class="heart-3d">
+            <div class="heart-3d-face heart-front">
+                <div class="heart-shape"></div>
+                <div class="heart-glow"></div>
+            </div>
+            <div class="heart-3d-face heart-back">
+                <div class="heart-shape"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Farol 3D de Rapunzel - Arriba Derecha -->
+    <div class="lantern-3d-wrapper top-right">
+        <div class="lantern-3d">
+            <div class="lantern-3d-handle"></div>
+            <div class="lantern-3d-top"></div>
+            <div class="lantern-3d-body">
+                <div class="lantern-3d-glow"></div>
+                <div class="lantern-3d-flame"></div>
+            </div>
+            <div class="lantern-3d-bottom"></div>
+        </div>
+    </div>
+
+    <!-- Farol 3D - Abajo Izquierda (más pequeño) -->
+    <div class="lantern-3d-wrapper bottom-left" style="animation-delay: 2s;">
+        <div class="lantern-3d" style="width: 50px; height: 72px;">
+            <div class="lantern-3d-handle" style="width: 22px; height: 12px;"></div>
+            <div class="lantern-3d-top" style="width: 36px;"></div>
+            <div class="lantern-3d-body" style="width: 50px; height: 64px;">
+                <div class="lantern-3d-glow"></div>
+                <div class="lantern-3d-flame"></div>
+            </div>
+            <div class="lantern-3d-bottom" style="width: 32px;"></div>
+        </div>
+    </div>
+
+    <!-- Corazón 3D - Abajo Derecha (más pequeño) -->
+    <div class="heart-3d-wrapper bottom-right" style="animation-delay: 1s;">
+        <div class="heart-3d" style="width: 50px; height: 50px;">
+            <div class="heart-3d-face heart-front">
+                <div class="heart-shape" style="transform: scale(0.62);"></div>
+                <div class="heart-glow"></div>
+            </div>
+            <div class="heart-3d-face heart-back">
+                <div class="heart-shape" style="transform: scale(0.62);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="container" id="quiz-box">
+        <!-- Anillo 3D Giratorio -->
+        <div class="ring-container">
+            <div class="ring-3d">
+                <div class="ring-band"></div>
+                <div class="ring-diamond"></div>
+            </div>
+        </div>
+
+        <div class="ornament">✦ ✦ ✦</div>
+        <h1 id="title">¿Quieres ser mi novia?</h1>
+        <div class="subtitle">Una pregunta del corazón</div>
+        <p class="message" id="message">Viendo las luces brillar, entendí que mi mundo es más hermoso si estás en él.
+            ¿Me harías el honor de ser mi nuevo sueño?</p>
+
+        <!-- Nombres -->
+        <div class="names-section">
+            <div class="names-display">
+                <span class="name-text">Gemita</span>
+                <span class="names-heart" onclick="checkSecret()" style="cursor: pointer;"
+                    title="¿Un secreto?">❤️</span>
+                <span class="name-text">Lobito</span>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button id="btn-si" onclick="aceptar()">¡Sí, quiero! ✨</button>
+            <button id="btn-no" onmouseover="clicImposible()" ontouchstart="clicImposible()"
+                onclick="clicImposible()">No</button>
+        </div>
+    </div>
+
+    <!-- Contenedor de Alertas Divertidas -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script>
+        // ═══════════ Generar Cielo Estrellado ═══════════
+        (function crearEstrellas() {
+            const capa = document.getElementById('stars');
+            const cantidad = 120;
+            for (let i = 0; i < cantidad; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 2.5 + 0.5;
+                star.style.cssText = `
+                    width: ${size}px; height: ${size}px;
+                    top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
+                    --dur: ${Math.random() * 3 + 2}s;
+                    animation-delay: ${Math.random() * 5}s;
+                    opacity: ${Math.random() * 0.5 + 0.1};
+                `;
+                capa.appendChild(star);
+            }
+        })();
+
+        // ═══════════ Generar Pétalos y Luciérnagas ═══════════
+        (function crearNaturaleza() {
+            // Pétalos
+            for (let i = 0; i < 20; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                const size = Math.random() * 8 + 8;
+                petal.style.cssText = `
+                    width: ${size}px; height: ${size}px;
+                    left: ${Math.random() * 100}%;
+                    --dur: ${Math.random() * 8 + 6}s;
+                    --delay: ${Math.random() * 10}s;
+                    --sway: ${(Math.random() - 0.5) * 150};
+                `;
+                document.body.appendChild(petal);
+            }
+            // Luciérnagas
+            for (let i = 0; i < 30; i++) {
+                const firefly = document.createElement('div');
+                firefly.className = 'firefly';
+                firefly.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    --dur: ${Math.random() * 6 + 4}s;
+                    --delay: ${Math.random() * 5}s;
+                    --dx: ${(Math.random() - 0.5) * 60};
+                    --dy: ${(Math.random() - 0.5) * 60};
+                    --opa: ${Math.random() * 0.6 + 0.4};
+                `;
+                document.body.appendChild(firefly);
+            }
+        })();
+
+        // ═══════════ Generar Partículas Doradas ═══════════
+        (function crearParticulas() {
+            const cantidad = 25;
+            for (let i = 0; i < cantidad; i++) {
+                const p = document.createElement('div');
+                p.className = 'golden-particle';
+                const size = Math.random() * 4 + 2;
+                p.style.cssText = `
+                    width: ${size}px; height: ${size}px;
+                    left: ${Math.random() * 100}%;
+                    bottom: -20px;
+                    --dur: ${Math.random() * 12 + 10}s;
+                    --opa: ${Math.random() * 0.4 + 0.2};
+                    --dx: ${(Math.random() - 0.5) * 100};
+                    animation-delay: ${Math.random() * 15}s;
+                `;
+                document.body.appendChild(p);
+            }
+        })();
+
+        // ═══════════ Generar Linternas Flotantes ═══════════
+        (function crearLinternas() {
+            const posiciones = [8, 18, 35, 52, 65, 78, 90];
+            const tamanos = [28, 38, 32, 42, 26, 36, 30];
+            const duraciones = [16, 20, 14, 18, 22, 15, 19];
+            const retrasos = [0, 4, 1, 6, 2, 8, 3];
+
+            posiciones.forEach((pos, i) => {
+                const wrap = document.createElement('div');
+                wrap.className = 'lantern-wrap';
+                wrap.style.cssText = `
+                    left: ${pos}%;
+                    --dur: ${duraciones[i]}s;
+                    --delay: ${retrasos[i]}s;
+                    --w: ${tamanos[i]}px;
+                `;
+                wrap.innerHTML = '<div class="lantern-body"></div>';
+                document.body.appendChild(wrap);
+            });
+        })();
+
+        // ═══════════ Lógica de Botones y Experiencia ═══════════
+
+        function iniciarExperiencia() {
+            const intro = document.getElementById('intro-screen');
+            const bgMusic = document.getElementById('bg-music');
+
+            intro.style.opacity = '0';
+            intro.style.visibility = 'hidden';
+
+            // Mostrar botón de mute
+            document.getElementById('mute-btn').classList.add('visible');
+
+            // Fade-in del audio
+            bgMusic.volume = 0;
+            bgMusic.play().catch(e => console.log("Agrega 'musica.mp3' en la carpeta para la música de fondo"));
+
+            let vol = 0;
+            const fadeInterval = setInterval(() => {
+                if (vol < 0.5) {
+                    vol += 0.05;
+                    bgMusic.volume = Math.min(vol, 0.5);
+                } else {
+                    clearInterval(fadeInterval);
+                }
+            }, 200);
+        }
+
+        let isMuted = false;
+        function toggleMute() {
+            const bgMusic = document.getElementById('bg-music');
+            const muteIcon = document.getElementById('mute-icon');
+            isMuted = !isMuted;
+            bgMusic.muted = isMuted;
+            muteIcon.innerText = isMuted ? '🔇' : '🔊';
+        }
+
+        // Quitar Preloader + Detectar si ya dijo que sí
+        window.addEventListener('load', () => {
+            // Si ?reset=1 está en la URL, borrar todo y empezar de cero
+            if (window.location.search.includes('reset=1')) {
+                localStorage.removeItem('fechaInicioNovios');
+                localStorage.removeItem('shownMilestones');
+            }
+
+            const fechaGuardada = localStorage.getItem('fechaInicioNovios');
+
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                }
+
+                // Si ya dijo que sí antes, saltar directo al contenido romántico
+                if (fechaGuardada && !window.location.search.includes('reset=1')) {
+                    saltarAlContenido(parseInt(fechaGuardada));
+                }
+            }, 1000);
+        });
+
+        // Función para saltar directamente al contenido post-aceptación
+        function saltarAlContenido(startTime) {
+            // Esconder intro y quiz
+            const intro = document.getElementById('intro-screen');
+            intro.style.opacity = '0';
+            intro.style.visibility = 'hidden';
+
+            const quizBox = document.getElementById('quiz-box');
+            quizBox.style.display = 'none';
+
+            const btnNoEl = document.getElementById('btn-no');
+            if (btnNoEl) btnNoEl.style.display = 'none';
+
+            // Mostrar botón de mute e iniciar música
+            document.getElementById('mute-btn').classList.add('visible');
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.volume = 0;
+            bgMusic.play().catch(() => {});
+            let vol = 0;
+            const fadeInterval = setInterval(() => {
+                if (vol < 0.5) { vol += 0.05; bgMusic.volume = Math.min(vol, 0.5); }
+                else { clearInterval(fadeInterval); }
+            }, 200);
+
+            // Configurar fecha desde el timestamp guardado
+            const fechaInicio = new Date(startTime);
+            const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+            document.getElementById('cinematic-date').innerText = `Desde ${fechaInicio.toLocaleDateString('es-MX', opciones)} · Para Siempre`;
+
+            // Mostrar texto cinemático
+            document.getElementById('cinematic-overlay').classList.add('visible');
+
+            // Lanzar efectos
+            lanzarConfeti();
+            lanzarLinternasInfinitas();
+
+            // Mostrar post-accept y contador
+            setTimeout(() => {
+                document.getElementById('post-accept').classList.add('visible');
+                iniciarContador(startTime);
+            }, 800);
+        }
+
+        // Lógica del Easter Egg
+        let secretClicks = 0;
+        let secretTimer = null;
+        function checkSecret() {
+            secretClicks++;
+            if (secretTimer) clearTimeout(secretTimer);
+
+            if (secretClicks >= 3) {
+                document.getElementById('secret-modal').classList.add('visible');
+                secretClicks = 0; // Reiniciar
+            } else {
+                secretTimer = setTimeout(() => { secretClicks = 0; }, 1000); // Tiene 1 seg para hacer los 3 clics
+            }
+        }
+
+        const btnNo = document.getElementById('btn-no');
+        btnNo.style.right = '0';
+
+        function moverBotonNo() {
+            const margen = 40;
+            const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+            const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            const maxX = vw - btnNo.offsetWidth - margen;
+            const maxY = vh - btnNo.offsetHeight - margen;
+            const x = Math.max(margen, Math.random() * maxX);
+            const y = Math.max(margen, Math.random() * maxY);
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+            btnNo.style.zIndex = '999';
+        }
+
+        // ═══════════ Aceptar ═══════════
+        function aceptar() {
+            // Vibración en móviles al dar "Sí"
+            if (navigator.vibrate) {
+                navigator.vibrate([50, 50, 50]);
+            }
+
+            const container = document.getElementById('quiz-box');
+
+            // Transición suave: se desvanece la caja original
+            container.style.transition = 'transform 1s ease-in, opacity 1s ease-in';
+            container.style.transform = 'scale(0.8)';
+            container.style.opacity = '0';
+
+            setTimeout(() => {
+                // Esconder elementos viejos
+                container.style.display = 'none';
+                if (btnNo) btnNo.style.display = 'none';
+
+                // Configurar fecha en el texto supremo
+                const hoy = new Date();
+                const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+                document.getElementById('cinematic-date').innerText = `Desde ${hoy.toLocaleDateString('es-MX', opciones)} · Para Siempre`;
+
+                // Mostrar texto cinemático supremo
+                document.getElementById('cinematic-overlay').classList.add('visible');
+
+                // Iniciar la magia de Rapunzel
+                lanzarConfeti();
+                lanzarLinternasInfinitas();
+
+                // Mostrar la galería y el reloj un momento después
+                setTimeout(() => {
+                    document.getElementById('post-accept').classList.add('visible');
+
+                    // Solo guardar el tiempo de inicio si es la PRIMERA vez que dice "Sí"
+                    let startTime = localStorage.getItem('fechaInicioNovios');
+                    if (!startTime) {
+                        startTime = Date.now();
+                        localStorage.setItem('fechaInicioNovios', startTime);
+                    }
+
+                    // Iniciar cronómetro
+                    iniciarContador(parseInt(startTime));
+                }, 1500);
+
+            }, 1000); // Esperar a que termine el fade-out
+        }
+
+        // ═══════════ Efectos de Celebración ═══════════
+        function lanzarConfeti() {
+            const colores = ['#ffd700', '#ff8c42', '#ff6b9d', '#c084fc', '#67e8f9', '#fbbf24', '#f472b6'];
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    const size = Math.random() * 8 + 4;
+                    const esCirculo = Math.random() > 0.5;
+                    confetti.style.cssText = `
+                        width: ${size}px; height: ${esCirculo ? size : size * 2.5}px;
+                        left: ${Math.random() * 100}%;
+                        background: ${colores[Math.floor(Math.random() * colores.length)]};
+                        border-radius: ${esCirculo ? '50%' : '2px'};
+                        --dur: ${Math.random() * 3 + 2}s;
+                        animation-delay: 0s;
+                    `;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 5500);
+                }, i * 50);
+            }
+        }
+
+        function lanzarCorazones() {
+            const corazones = ['💜', '💛', '✨', '🌟', '💫', '♥️'];
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-float';
+                    heart.textContent = corazones[Math.floor(Math.random() * corazones.length)];
+                    heart.style.cssText = `
+                        left: ${Math.random() * 100}%;
+                        bottom: ${Math.random() * 30}%;
+                        --size: ${Math.random() * 1.5 + 1}rem;
+                        --dur: ${Math.random() * 3 + 3}s;
+                        --dx: ${(Math.random() - 0.5) * 200}px;
+                    `;
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 7000);
+                }, i * 200);
+            }
+        }
+
+        function crearLinternasExtra() {
+            for (let i = 0; i < 15; i++) {
+                const wrap = document.createElement('div');
+                wrap.className = 'lantern-wrap';
+                const w = Math.random() * 18 + 22;
+                wrap.style.cssText = `
+                    left: ${Math.random() * 100}%;
+                    --dur: ${Math.random() * 8 + 10}s;
+                    --delay: ${Math.random() * 3}s;
+                    --w: ${w}px;
+                `;
+                wrap.innerHTML = '<div class="lantern-body"></div>';
+                document.body.appendChild(wrap);
+            }
+        }
+
+        // ═══════════ ✨ Estela Dorada del Cursor ═══════════
+        (function estelaCursor() {
+            let ultimoTiempo = 0;
+            const intervalo = 50; // ms entre chispas
+
+            document.addEventListener('mousemove', (e) => {
+                const ahora = Date.now();
+                if (ahora - ultimoTiempo < intervalo) return;
+                ultimoTiempo = ahora;
+
+                for (let i = 0; i < 3; i++) {
+                    const chispa = document.createElement('div');
+                    chispa.className = 'cursor-sparkle';
+                    const size = Math.random() * 5 + 2;
+                    chispa.style.cssText = `
+                        width: ${size}px; height: ${size}px;
+                        left: ${e.clientX}px; top: ${e.clientY}px;
+                        --tx: ${(Math.random() - 0.5) * 40}px;
+                        --ty: ${(Math.random() - 0.5) * 40 - 15}px;
+                        animation-delay: ${i * 0.05}s;
+                    `;
+                    document.body.appendChild(chispa);
+                    setTimeout(() => chispa.remove(), 900);
+                }
+            });
+        })();
+
+        // ═══════════ 🌠 Estrellas Fugaces ═══════════
+        (function estrellasFugaces() {
+            function lanzarEstrella() {
+                const estrella = document.createElement('div');
+                estrella.className = 'shooting-star';
+
+                // Nacen desde arriba, van hacia abajo-derecha o abajo-izquierda
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * (window.innerHeight * 0.3);
+                const angle = (Math.random() * 30 + 15) * (Math.random() > 0.5 ? 1 : -1);
+                const distancia = Math.random() * 400 + 300;
+                const rad = angle * Math.PI / 180;
+
+                estrella.style.cssText = `
+                    left: ${startX}px; top: ${startY}px;
+                    --dur: ${Math.random() * 1 + 0.6}s;
+                    --angle: ${angle}deg;
+                    --dx: ${Math.cos(rad) * distancia}px;
+                    --dy: ${Math.sin(rad) * distancia + 200}px;
+                `;
+
+                document.body.appendChild(estrella);
+                setTimeout(() => estrella.remove(), 2000);
+            }
+
+            // Lanzar una estrella fugaz cada 4-8 segundos
+            function programarSiguiente() {
+                const espera = Math.random() * 4000 + 4000;
+                setTimeout(() => {
+                    lanzarEstrella();
+                    programarSiguiente();
+                }, espera);
+            }
+            // Primera estrella después de 2s
+            setTimeout(() => {
+                lanzarEstrella();
+                programarSiguiente();
+            }, 2000);
+        })();
+
+        // ═══════════ 🖱️ Parallax con el Mouse ═══════════
+        (function parallaxMouse() {
+            const container = document.getElementById('quiz-box');
+            const corazones = document.querySelectorAll('.heart-3d-wrapper');
+            const faroles = document.querySelectorAll('.lantern-3d-wrapper');
+
+            document.addEventListener('mousemove', (e) => {
+                // No mover el quiz-box si ya está oculto
+                if (container.style.display === 'none') return;
+
+                const cx = (e.clientX / window.innerWidth - 0.5) * 2;  // -1 a 1
+                const cy = (e.clientY / window.innerHeight - 0.5) * 2; // -1 a 1
+
+                // Contenedor se mueve sutilmente
+                container.style.transform = `translate(${cx * 5}px, ${cy * 5}px)`;
+
+                // Corazones 3D responden más
+                corazones.forEach(c => {
+                    c.style.transform += ` translate(${cx * 15}px, ${cy * 12}px)`;
+                });
+
+                // Faroles 3D responden en dirección opuesta (profundidad)
+                faroles.forEach(f => {
+                    f.style.transform += ` translate(${-cx * 10}px, ${-cy * 8}px)`;
+                });
+            });
+        })();
+
+        // ═══════════ 💫 Explosión de Chispas al Hacer Clic ═══════════
+        (function explosionClic() {
+            document.addEventListener('click', (e) => {
+                const colores = ['#ffd700', '#ff8c42', '#ff6b9d', '#c084fc', '#ffb347'];
+                const cantidad = 12;
+
+                for (let i = 0; i < cantidad; i++) {
+                    const particula = document.createElement('div');
+                    particula.className = 'click-burst';
+                    const size = Math.random() * 6 + 3;
+                    const angulo = (i / cantidad) * 360;
+                    const distancia = Math.random() * 60 + 30;
+                    const rad = angulo * Math.PI / 180;
+
+                    particula.style.cssText = `
+                        width: ${size}px; height: ${size}px;
+                        left: ${e.clientX}px; top: ${e.clientY}px;
+                        background: ${colores[Math.floor(Math.random() * colores.length)]};
+                        --bx: ${Math.cos(rad) * distancia}px;
+                        --by: ${Math.sin(rad) * distancia}px;
+                    `;
+
+                    document.body.appendChild(particula);
+                    setTimeout(() => particula.remove(), 800);
+                }
+            });
+        })();
+
+        // ═══════════ ⌨️ Efecto de Escritura en el Mensaje ═══════════
+        (function efectoEscritura() {
+            const mensaje = document.getElementById('message');
+            if (!mensaje) return;
+
+            // No ejecutar si el quiz ya está oculto (visita de regreso)
+            const quizBox = document.getElementById('quiz-box');
+            if (quizBox && quizBox.style.display === 'none') return;
+
+            const textoOriginal = mensaje.textContent.trim();
+            mensaje.textContent = '';
+            mensaje.style.minHeight = '80px';
+
+            // Crear cursor de escritura
+            const cursor = document.createElement('span');
+            cursor.className = 'typing-cursor';
+
+            let indice = 0;
+            const velocidad = 45; // ms por letra
+
+            // Esperar a que las animaciones de entrada terminen
+            setTimeout(() => {
+                mensaje.appendChild(cursor);
+
+                function escribirLetra() {
+                    if (indice < textoOriginal.length) {
+                        // Insertar la letra antes del cursor
+                        const letra = document.createTextNode(textoOriginal[indice]);
+                        mensaje.insertBefore(letra, cursor);
+                        indice++;
+
+                        // Variación natural en la velocidad
+                        const pausa = textoOriginal[indice - 1] === ',' ? velocidad * 4 :
+                            textoOriginal[indice - 1] === '.' ? velocidad * 6 :
+                                textoOriginal[indice - 1] === '?' ? velocidad * 5 :
+                                    velocidad + (Math.random() - 0.5) * 30;
+
+                        setTimeout(escribirLetra, pausa);
+                    } else {
+                        // Quitar cursor después de 2 segundos
+                        setTimeout(() => {
+                            cursor.style.animation = 'sparkleFade 0.5s forwards';
+                            setTimeout(() => cursor.remove(), 500);
+                        }, 2000);
+                    }
+                }
+
+                escribirLetra();
+            }, 1800); // Esperar las animaciones de fadeInDown
+        })();
+
+        // ═══════════ 🏮 Linternas de Rapunzel ═══════════
+        let linternaInterval;
+        function lanzarLinternasInfinitas() {
+            // Lanza 40 linternas iniciales como un enjambre
+            for (let i = 0; i < 40; i++) {
+                setTimeout(crearLinternaIndividual, Math.random() * 2000);
+            }
+            // Sigue lanzando linternas constantemente
+            linternaInterval = setInterval(crearLinternaIndividual, 600);
+
+            // OPTIMIZACIÓN MÓVILES: Detener la generación después de 45 segundos para evitar sobrecarga (lag)
+            setTimeout(() => {
+                if (linternaInterval) clearInterval(linternaInterval);
+            }, 45000);
+        }
+
+        function crearLinternaIndividual() {
+            const wrap = document.createElement('div');
+            wrap.className = 'lantern-wrap';
+            const w = Math.random() * 25 + 15; // 15px a 40px
+            wrap.style.cssText = `
+                left: ${Math.random() * 100}%;
+                --dur: ${Math.random() * 15 + 15}s;
+                --delay: 0s;
+                --w: ${w}px;
+                z-index: ${Math.random() > 0.7 ? 15 : 1};
+            `;
+            wrap.innerHTML = '<div class="lantern-body"></div>';
+            document.body.appendChild(wrap);
+
+            // Limpiar DOM después de que suban para no laggear el celular
+            setTimeout(() => wrap.remove(), 30000);
+        }
+
+        // ═══════════ 📸 Lógica de la Galería ═══════════
+        function siguienteFoto() {
+            if (navigator.vibrate) navigator.vibrate(15);
+            const fotos = document.querySelectorAll('.gallery-photo');
+            if (fotos.length === 0) return;
+
+            let indiceActiva = 0;
+            fotos.forEach((f, idx) => {
+                if (f.classList.contains('active')) indiceActiva = idx;
+            });
+
+            // La actual pasa a ser 'prev' (sale por la izquierda)
+            fotos[indiceActiva].classList.remove('active');
+            fotos[indiceActiva].classList.add('prev');
+
+            // Después de 800ms (tiempo de la transición), la mandamos al fondo (quitando todo)
+            setTimeout(() => {
+                fotos[indiceActiva].classList.remove('prev');
+                // Al quitar ambas clases, la foto vuelve al stack invisible atrás
+            }, 800);
+
+            // La siguiente pasa a ser 'active'
+            const indiceSiguiente = (indiceActiva + 1) % fotos.length;
+            fotos[indiceSiguiente].classList.add('active');
+        }
+
+        // Auto-pasar fotos cada 4 segundos
+        setInterval(() => {
+            const postAccept = document.getElementById('post-accept');
+            if (postAccept.classList.contains('visible')) {
+                siguienteFoto();
+            }
+        }, 4000);
+
+        // ═══════════ ⏱️ Contador Flip Clock ═══════════
+        function iniciarContador(startTime) {
+            const tDays = document.getElementById('t-days');
+            const tHours = document.getElementById('t-hours');
+            const tMins = document.getElementById('t-mins');
+            const tSecs = document.getElementById('t-secs');
+
+            // 1) Calcular y mostrar el valor REAL inmediatamente (para visitas de regreso)
+            function calcular() {
+                const diff = Date.now() - startTime;
+                if (diff < 0) return { days: 0, hours: 0, mins: 0, secs: 0 };
+                return {
+                    secs: Math.floor((diff / 1000) % 60),
+                    mins: Math.floor((diff / 1000 / 60) % 60),
+                    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+                    days: Math.floor(diff / (1000 * 60 * 60 * 24))
+                };
+            }
+
+            const inicial = calcular();
+            tDays.innerText = inicial.days.toString();
+            tHours.innerText = inicial.hours.toString().padStart(2, '0');
+            tMins.innerText = inicial.mins.toString().padStart(2, '0');
+            tSecs.innerText = inicial.secs.toString().padStart(2, '0');
+
+            // Milestones: se muestran una sola vez por sesión
+            const milestones = [
+                { days: 0, hours: 0, mins: 1, emoji: '🌟', text: '¡1 minuto juntos!', sub: 'El primer minuto de muchos...' },
+                { days: 0, hours: 1, mins: 0, emoji: '✨', text: '¡1 hora juntos!', sub: 'El tiempo vuela cuando estamos juntos' },
+                { days: 1, hours: 0, mins: 0, emoji: '🎉', text: '¡1 día juntos!', sub: 'Primer día de nuestra historia' },
+                { days: 7, hours: 0, mins: 0, emoji: '💜', text: '¡1 semana juntos!', sub: '7 días de amor' },
+                { days: 14, hours: 0, mins: 0, emoji: '💕', text: '¡2 semanas juntos!', sub: 'Cada día más enamorado' },
+                { days: 30, hours: 0, mins: 0, emoji: '🌙', text: '¡1 mes juntos!', sub: 'Un mes de sueños compartidos' },
+                { days: 100, hours: 0, mins: 0, emoji: '🔥', text: '¡100 días juntos!', sub: '¡Un siglo de amor en días!' },
+                { days: 365, hours: 0, mins: 0, emoji: '🌍', text: '¡1 año juntos!', sub: 'Una vuelta al sol a tu lado' },
+            ];
+            const shownMilestones = new Set(JSON.parse(localStorage.getItem('shownMilestones') || '[]'));
+
+            function checkMilestone(days, hours, mins) {
+                for (const m of milestones) {
+                    const key = `${m.days}-${m.hours}-${m.mins}`;
+                    if (shownMilestones.has(key)) continue;
+                    if (days === m.days && hours === m.hours && mins === m.mins) {
+                        shownMilestones.add(key);
+                        localStorage.setItem('shownMilestones', JSON.stringify([...shownMilestones]));
+                        showMilestone(m.emoji, m.text, m.sub);
+                        break;
+                    }
+                }
+            }
+
+            function showMilestone(emoji, text, sub) {
+                const toast = document.getElementById('milestone-toast');
+                document.getElementById('milestone-emoji').innerText = emoji;
+                document.getElementById('milestone-text').innerText = text;
+                document.getElementById('milestone-sub').innerText = sub;
+                toast.classList.add('show');
+                if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+                setTimeout(() => toast.classList.remove('show'), 5000);
+            }
+
+            function updateFlip(element, newValue) {
+                if (element.innerText !== newValue) {
+                    element.classList.remove('flip');
+                    void element.offsetWidth;
+                    element.innerText = newValue;
+                    element.classList.add('flip');
+                }
+            }
+
+            // 3) Actualizar cada segundo
+            setInterval(() => {
+                const v = calcular();
+
+                updateFlip(tDays, v.days.toString());
+                updateFlip(tHours, v.hours.toString().padStart(2, '0'));
+                updateFlip(tMins, v.mins.toString().padStart(2, '0'));
+                updateFlip(tSecs, v.secs.toString().padStart(2, '0'));
+
+                // Revisar milestones cada tick
+                checkMilestone(v.days, v.hours, v.mins);
+            }, 1000);
+        }
+
+        // ═══════════ Botón No Imposible ═══════════
+        const toastMsgs = [
+            "⚠️ Error del destino: Opción deshabilitada.",
+            "😅 ¿Estás segura? Tu dedo resbaló...",
+            "🔮 El horóscopo dice que debes decir sí.",
+            "🚫 ¡Acceso denegado al botón 'No'!",
+            "✨ Intenta de nuevo. Pista: Es el botón de arriba.",
+            "💖 Ni el universo te dejará decir que no."
+        ];
+        let intentosNo = 0;
+        function clicImposible() {
+            intentosNo++;
+
+            // Después de 5 intentos, el botón se rinde
+            if (intentosNo >= 5) {
+                btnNo.innerText = "Bueno, sí";
+                btnNo.style.background = "linear-gradient(135deg, #ffd700, #ffb347)";
+                btnNo.style.color = "#1a0b2e";
+                btnNo.style.border = "none";
+                btnNo.onclick = aceptar;
+                btnNo.onmouseover = null;
+                btnNo.ontouchstart = null;
+                return; // Ya no huye
+            }
+
+            moverBotonNo();
+            const container = document.getElementById('toast-container');
+            const msg = document.createElement('div');
+            msg.className = 'toast-msg';
+            msg.innerText = toastMsgs[Math.floor(Math.random() * toastMsgs.length)];
+            container.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
+
+        // ═══════════ Efecto Tilt 3D ═══════════
+        (function initTilt() {
+            document.addEventListener('mousemove', (e) => {
+                const target = e.target.closest('.reason-card-inner, .love-letter');
+                if (!target) return;
+                const rect = target.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const midX = rect.width / 2;
+                const midY = rect.height / 2;
+                const rotX = ((y - midY) / midY) * -15; // Max 15 deg
+                const rotY = ((x - midX) / midX) * 15;
+                const isFlipped = target.parentElement && target.parentElement.classList.contains('flipped');
+                const finalRotY = isFlipped ? rotY + 180 : rotY;
+                target.style.transform = `rotateX(${rotX}deg) rotateY(${finalRotY}deg)`;
+            });
+
+            document.addEventListener('mouseout', (e) => {
+                const target = e.target.closest('.reason-card-inner, .love-letter');
+                if (!target) return;
+                const isFlipped = target.parentElement && target.parentElement.classList.contains('flipped');
+                target.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateX(0) rotateY(0)';
+            });
+        })();
+
+        // ═══════════ Fondo Dinámico Scroll ═══════════
+        (function initScrollBackground() {
+            const scrollContainer = document.getElementById('post-accept');
+            const overlay = document.getElementById('night-overlay');
+            scrollContainer.addEventListener('scroll', () => {
+                const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+                if (scrollHeight <= 0) return;
+                const scrollPos = scrollContainer.scrollTop;
+                const scrollPercent = scrollPos / scrollHeight;
+                overlay.style.opacity = Math.min(scrollPercent * 1.5, 1).toString();
+            });
+        })();
+
+        // ═══════════ Scroll Reveal con IntersectionObserver ═══════════
+        (function initScrollReveal() {
+            const sections = document.querySelectorAll('.scroll-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, {
+                root: document.getElementById('post-accept'),
+                threshold: 0.15
+            });
+            sections.forEach(s => observer.observe(s));
+        })();
+
+        // ═══════════ Swipe para Galería ═══════════
+        (function initSwipe() {
+            const gallery = document.getElementById('gallery');
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            gallery.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            gallery.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) { // Umbral mínimo de swipe
+                    siguienteFoto();
+                }
+            }, { passive: true });
+        })();
+
+        // ═══════════ Fallback de Fotos ═══════════
+        (function checkPhotos() {
+            document.querySelectorAll('.gallery-photo').forEach(photo => {
+                const bgImage = photo.style.backgroundImage;
+                const urlMatch = bgImage.match(/url\(['"]?([^'"\)]+)['"]?\)/);
+                if (urlMatch && urlMatch[1]) {
+                    const img = new Image();
+                    img.onerror = () => photo.classList.add('img-error');
+                    img.src = urlMatch[1];
+                }
+            });
+        })();
+
+        // ═══════════ Click en Milestone Toast para cerrar ═══════════
+        document.getElementById('milestone-toast').addEventListener('click', function() {
+            this.classList.remove('show');
+        });
+    </script>
+</body>
+
+</html>
